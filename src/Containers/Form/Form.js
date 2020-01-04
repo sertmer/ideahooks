@@ -39,7 +39,7 @@ class Form extends Component {
 }
 
 export const mapDispatch = dispatch => ({
-  postIntention: intention => dispatch(postIntention(intention))
+  postIntention: (intention) => dispatch(postIntention(intention))
 })
 
 export default connect(null, mapDispatch)(Form);

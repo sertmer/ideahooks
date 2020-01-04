@@ -1,4 +1,6 @@
-export const postIntention = intention => ({
+export const postIntention = (intention) => ({
   type: 'POST_INTENTION',
-  intention
+  intention: intention.intention,
+  strategy: intention.strategy,
+  id: intention.id
 })
