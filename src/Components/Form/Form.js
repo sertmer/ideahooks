@@ -21,12 +21,15 @@ class Form extends Component {
         <input type='text' 
           name='intention' 
           value={this.state.intention} 
+          onChange={(e) => this.handleChange(e)}
         /> 
         <label>Strategy: </label>
         <input type='text' 
           name='strategy' 
           value={this.state.strategy} 
+          onChange={(e) => this.handleChange(e)}
         />
+        <button onClick={}>submit</button>
       </nav>
     )
   }
