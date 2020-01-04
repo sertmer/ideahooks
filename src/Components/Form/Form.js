@@ -29,7 +29,7 @@ class Form extends Component {
           value={this.state.strategy} 
           onChange={(e) => this.handleChange(e)}
         />
-        <button onClick={}>submit</button>
+        <button>submit</button>
       </nav>
     )
   }
