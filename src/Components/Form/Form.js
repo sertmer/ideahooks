@@ -1,12 +1,15 @@
-import React, { Component } from 'react'
-import './Form.css'
+import React, { Component } from 'react';
+import './Form.css';
+import  { connect } from 'react-redux';
+import { postIntention } from '../../Actions/Actions'
 
 class Form extends Component {
   constructor() {
     super()
     this.state = {
       intention: '',
-      strategy: ''
+      strategy: '',
+      id: Date.now()
     }
   }
 
@@ -29,10 +32,14 @@ class Form extends Component {
           value={this.state.strategy} 
           onChange={(e) => this.handleChange(e)}
         />
-        <button>submit</button>
+        <button onClick={() => this.props.postIntention(this.state)}>submit</button>
       </nav>
     )
   }
 }
 
-export default Form;
+export const mapDispatch = dispatch => ({
+  postIntention: intention => dispatch(postIntention(intention))
+})
+
+export default connect(null, mapDispatch)(Form);
