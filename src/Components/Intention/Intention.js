@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Intention = ({intention, strategy}) => {
+const Intention = ({intention, strategy, id}) => {
   return (
-    <div>
+    <div key={id} id={id}>
       <h2>{intention}</h2>
       <p>{strategy}</p>
     </div>

@@ -6,6 +6,8 @@ import IntentionsContainer from '../IntentionsContainer/IntentionsContainer'
  class App extends Component {
   constructor() {
     super()
+    
+    this.state={}
   }  
 
   render() {

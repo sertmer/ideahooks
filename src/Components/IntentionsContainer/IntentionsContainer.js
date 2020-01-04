@@ -5,6 +5,7 @@ import Intention from '../Intention/Intention'
 const IntentionsContainer = ({intentions}) => {
   const allIntentions = intentions.map(intention => {
     return (<Intention 
+      key={intention.id}
       intention={intention.intention}
       strategy={intention.strategy}
     />)
