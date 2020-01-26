@@ -1,41 +1,37 @@
-import React, { Component } from 'react';
+import React, {useState} from 'react';
 import './Form.css';
 import  { connect } from 'react-redux';
 import { postIntention } from '../../Actions/Actions'
 
-class Form extends Component {
-  constructor() {
-    super()
-    this.state = {
-      intention: '',
-      strategy: '',
-      id: Date.now()
+const Form = ({postIntention}) => {
+  const [intention, setIntention] = useState('')
+  const [strategy, setStrategy] = useState('')
+
+  const handleChange = (e) => {
+    if (e.target.name === 'intention') {
+      setIntention(e.target.value)
+    } else {
+      setStrategy(e.target.value)
     }
   }
-
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
   
-  render() {
-    return (
-      <nav>
-        <label>Intention: </label>
-        <input type='text' 
-          name='intention' 
-          value={this.state.intention} 
-          onChange={(e) => this.handleChange(e)}
-        /> 
-        <label>Strategy: </label>
-        <input type='text' 
-          name='strategy' 
-          value={this.state.strategy} 
-          onChange={(e) => this.handleChange(e)}
-        />
-        <button onClick={() => this.props.postIntention(this.state)}>submit</button>
-      </nav>
-    )
-  }
+  return (
+    <nav>
+      <label>Intention: </label>
+      <input type='text' 
+        name='intention' 
+        value={intention} 
+        onChange={(e) => handleChange(e)}
+      /> 
+      <label>Strategy: </label>
+      <input type='text' 
+        name='strategy' 
+        value={strategy} 
+        onChange={(e) => handleChange(e)}
+      />
+      <button onClick={() => postIntention({intention, strategy})}>submit</button>
+    </nav>
+  )
 }
 
 export const mapDispatch = dispatch => ({
