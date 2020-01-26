@@ -14,6 +14,12 @@ const Form = ({postIntention}) => {
       setStrategy(e.target.value)
     }
   }
+
+  const handleClick = () => {
+    setIntention('')
+    setStrategy('')
+    postIntention({intention, strategy})
+  }
   
   return (
     <nav>
@@ -29,7 +35,7 @@ const Form = ({postIntention}) => {
         value={strategy} 
         onChange={(e) => handleChange(e)}
       />
-      <button onClick={() => postIntention({intention, strategy})}>submit</button>
+      <button onClick={handleClick}>submit</button>
     </nav>
   )
 }
