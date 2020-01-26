@@ -8,6 +8,7 @@ const IntentionsContainer = ({intentions}) => {
       key={intention.id}
       intention={intention.intention}
       strategy={intention.strategy}
+      id={intention.id}
     />)
   })
 

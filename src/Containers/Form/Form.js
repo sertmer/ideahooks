@@ -6,6 +6,7 @@ import { postIntention } from '../../Actions/Actions'
 const Form = ({postIntention}) => {
   const [intention, setIntention] = useState('')
   const [strategy, setStrategy] = useState('')
+  const [id, setId] = useState((Date.now() + Math.random()))
 
   const handleChange = (e) => {
     if (e.target.name === 'intention') {
@@ -18,7 +19,7 @@ const Form = ({postIntention}) => {
   const handleClick = () => {
     setIntention('')
     setStrategy('')
-    postIntention({intention, strategy})
+    postIntention({intention, strategy, id})
   }
   
   return (

@@ -8,6 +8,9 @@ export const intentions = (state = [], action) => {
         id: action.id
         }
       ]
+    case 'DELETE_INTENTION':
+      const newIntentions =  state.filter(intention => intention.id !== action.intention.id)
+      console.log(newIntentions)
     default: 
       return state
   }
